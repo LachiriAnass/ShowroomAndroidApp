@@ -5,39 +5,70 @@
     android:layout_height="match_parent"
     tools:context=".ExploreFragment">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="77dp"
-            android:text="Latest galleries "
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="41dp"
-            android:text="Explore Art"
-            android:textSize="20sp" />
-
-        <ListView
-            android:id="@+id/exploreGalleriesListView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="125dp" />
-    </RelativeLayout>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/helloText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Explore"
+                android:gravity="center"
+                android:textSize="70dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+                <Button
+                    android:id="@+id/latestButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:text="Latest"
+                    android:background="@drawable/roundedbutton"/>
+                <Button
+                    android:id="@+id/mostRatedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:text="Most Rated"
+                    android:background="@drawable/roundedbutton"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/latestText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Latest Galleries"
+                android:gravity="center"
+                android:textSize="40dp"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/exploreLatestGalleries"/>
+
+            <TextView
+                android:id="@+id/mostRatedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Most Rated Galleries"
+                android:gravity="center"
+                android:textSize="40dp"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/exploreMostRatedGalleries"/>
+        </LinearLayout>
+
 
 </FrameLayout>

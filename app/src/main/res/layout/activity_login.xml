@@ -7,15 +7,25 @@
     android:background="@drawable/green_bg"
     tools:context=".LoginActivity">
 
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/return_arrow"
+        android:onClick="returnMain"/>
+
     <LinearLayout
         android:id="@+id/top_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="3"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="100dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="90dp"
         android:paddingBottom="90dp">
         <ImageView
             android:contentDescription="@string/app_name"
@@ -65,7 +75,7 @@
 
         <EditText
             android:layout_weight="1"
-            android:id="@+id/usernameLogin"
+            android:id="@+id/emailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
