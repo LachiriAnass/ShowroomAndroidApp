@@ -103,7 +103,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
             android:onClick="doLogin"
-            android:text="Login" />
+            android:text="Login"
+            android:textColor="@color/cardview_light_background"/>
 
     </LinearLayout>
 

@@ -5,54 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="30dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
     tools:context=".EditProfileActivity">
+
+    <include
+        android:id="@+id/activityEditProfileToolbar"
+        layout="@layout/toolbar"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageEditProfile"
         android:src="@drawable/sun"
+        android:scaleType="centerCrop"
         android:layout_marginBottom="40dp"/>
 
-    <TextView
-        android:id="@+id/editProfileName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name : "
-        android:textSize="30dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
-    <EditText
-        android:id="@+id/editProfileNameInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName" />
+        <TextView
+            android:id="@+id/editProfileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name : "
+            android:textSize="30dp" />
 
-    <TextView
-        android:id="@+id/editProfileEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name : "
-        android:textSize="30dp" />
+        <EditText
+            android:id="@+id/editProfileNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/editProfileEmailInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress" />
+        <TextView
+            android:id="@+id/editProfileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email : "
+            android:textSize="30dp" />
 
-
-
-
-    <Button
-        android:id="@+id/editProfileSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/roundedbutton"
-        android:text="Submit"
-        android:textAllCaps="false"/>
+        <EditText
+            android:id="@+id/editProfileEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
 
 
+
+
+        <Button
+            android:id="@+id/editProfileSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbutton"
+            android:text="Submit"
+            android:textColor="@color/cardview_light_background"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
 </LinearLayout>

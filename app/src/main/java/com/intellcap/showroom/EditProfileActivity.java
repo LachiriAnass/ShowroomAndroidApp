@@ -1,6 +1,7 @@
 package com.intellcap.showroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,9 +21,15 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
+        Toolbar toolbar = findViewById(R.id.activityEditProfileToolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("  Edit Profile");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         ImageView imageView = (ImageView) findViewById(R.id.imageEditProfile);
-        String url = "https://classbento.com.au/images/class/paint-and-sip-class-paint-a-sunset-brisbane-portrait-retina.jpg?1589956345%201600w";
+        String url = "http://192.168.10.10/storage/public/gallery/default.jpg";
         Picasso.get().load(url).into(imageView);
 
 

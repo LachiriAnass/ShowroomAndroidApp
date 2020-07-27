@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -46,12 +48,12 @@ public class ExploreFragment extends Fragment {
     CustomAdapter customAdapter2 = null;
 
     CustomData[] customData = new CustomData[]{
-            new CustomData("Painting 1", "https://classbento.com.au/images/class/paint-and-sip-class-paint-a-sunset-brisbane-portrait-retina.jpg?1589956345%201600w"),
-            new CustomData("Painting 2", "https://azurepaintstudio.com/wp-content/uploads/2019/03/azure_paint_studio.png"),
-            new CustomData("Painting 3", "https://i.pinimg.com/236x/bb/55/66/bb5566c14a95f1897b1e258e0fcb69fe--acrylic-painting-techniques-acrylic-paintings.jpg"),
-            new CustomData("Painting 4", "https://i.pinimg.com/236x/c2/6e/18/c26e181e38ac72e43666c16269e201e9--paint-bar-big-eyes.jpg"),
-            new CustomData("Painting 5", "https://i.pinimg.com/236x/bb/55/66/bb5566c14a95f1897b1e258e0fcb69fe--acrylic-painting-techniques-acrylic-paintings.jpgg"),
-            new CustomData("Painting 6", "https://azurepaintstudio.com/wp-content/uploads/2019/03/azure_paint_studio.png")
+            new CustomData("Gallery 1", "https://classbento.com.au/images/class/paint-and-sip-class-paint-a-sunset-brisbane-portrait-retina.jpg?1589956345%201600w"),
+            new CustomData("Gallery 2", "https://azurepaintstudio.com/wp-content/uploads/2019/03/azure_paint_studio.png"),
+            new CustomData("Gallery 3", "https://cdn.pixabay.com/photo/2020/05/14/19/49/cornwall-5171138_960_720.jpg"),
+            new CustomData("Gallery 4", "https://cdn.pixabay.com/photo/2020/06/28/08/03/zoo-5348334_960_720.jpg"),
+            new CustomData("Gallery 5", "https://cdn.pixabay.com/photo/2015/05/15/14/54/horizon-768759_960_720.jpg"),
+            new CustomData("Gallery 6", "https://cdn.pixabay.com/photo/2020/06/11/13/56/forest-5286824_960_720.jpg")
     };
 
 
@@ -79,8 +81,13 @@ public class ExploreFragment extends Fragment {
         //String myString = userData.getUserData();
         //myTextView.setText(myString);
 
-        latestText = (TextView) getView().findViewById(R.id.latestText);
-        latestGalleriesList = (ListView) getView().findViewById(R.id.exploreLatestGalleries);
+        Toolbar toolbar = getView().findViewById(R.id.fragmentExploreToolbar);
+
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("  Explore");
+
+        latestText = getView().findViewById(R.id.latestText);
+        latestGalleriesList = getView().findViewById(R.id.exploreLatestGalleries);
 
         customAdapter = new CustomAdapter(getActivity(), R.layout.custom_row, customData);
 
@@ -92,7 +99,7 @@ public class ExploreFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Log.v("PLACE", myPlacesArray[position]);
-                Toast.makeText(getContext(),Integer.toString(position) + " " +customData[position].mText +" .", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), position + " " +customData[position].mText +" .", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getContext(), GalleryActivity.class);
                 startActivity(i);
             }
@@ -100,8 +107,8 @@ public class ExploreFragment extends Fragment {
 
 
 
-        mostRatedText = (TextView) getView().findViewById(R.id.mostRatedText);
-        mostRatedGalleriesList = (ListView) getView().findViewById(R.id.exploreMostRatedGalleries);
+        mostRatedText = getView().findViewById(R.id.mostRatedText);
+        mostRatedGalleriesList = getView().findViewById(R.id.exploreMostRatedGalleries);
         customAdapter2 = new CustomAdapter(getActivity(), R.layout.custom_row, customData);
 
         if(mostRatedGalleriesList != null){
@@ -112,7 +119,7 @@ public class ExploreFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Log.v("PLACE", myPlacesArray[position]);
-                Toast.makeText(getContext(),Integer.toString(position) + " " +customData[position].mText +" .", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), position + " " +customData[position].mText +" .", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getContext(), GalleryActivity.class);
                 startActivity(i);
             }
@@ -120,7 +127,7 @@ public class ExploreFragment extends Fragment {
 
 
 
-        latestButton = (Button) getView().findViewById(R.id.latestButton);
+        latestButton = getView().findViewById(R.id.latestButton);
         latestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,7 +138,7 @@ public class ExploreFragment extends Fragment {
             }
         });
 
-        mostRatedButton = (Button) getView().findViewById(R.id.mostRatedButton);
+        mostRatedButton = getView().findViewById(R.id.mostRatedButton);
         mostRatedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

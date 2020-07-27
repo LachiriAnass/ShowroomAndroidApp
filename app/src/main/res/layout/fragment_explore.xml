@@ -9,22 +9,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/helloText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Explore"
-                android:gravity="center"
-                android:textSize="70dp"
-                />
+            <include
+                android:id="@+id/fragmentExploreToolbar"
+                layout="@layout/toolbar"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
+                android:layout_marginTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
                 <Button
@@ -34,6 +28,7 @@
                     android:layout_weight="1"
                     android:layout_marginRight="10dp"
                     android:text="Latest"
+                    android:textColor="@color/cardview_light_background"
                     android:background="@drawable/roundedbutton"/>
                 <Button
                     android:id="@+id/mostRatedButton"
@@ -42,6 +37,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:text="Most Rated"
+                    android:textColor="@color/cardview_light_background"
                     android:background="@drawable/roundedbutton"/>
             </LinearLayout>
 
@@ -51,11 +47,14 @@
                 android:layout_height="wrap_content"
                 android:text="Latest Galleries"
                 android:gravity="center"
-                android:textSize="40dp"/>
+                android:textSize="40dp"
+                android:elevation="4dp"/>
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/exploreLatestGalleries"/>
+                android:id="@+id/exploreLatestGalleries"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="10.0sp"/>
 
             <TextView
                 android:id="@+id/mostRatedText"
@@ -63,11 +62,14 @@
                 android:layout_height="wrap_content"
                 android:text="Most Rated Galleries"
                 android:gravity="center"
-                android:textSize="40dp"/>
+                android:textSize="40dp"
+                android:elevation="4dp"/>
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/exploreMostRatedGalleries"/>
+                android:id="@+id/exploreMostRatedGalleries"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="7.0sp"/>
         </LinearLayout>
 
 

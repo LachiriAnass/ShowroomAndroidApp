@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".UserFragment">
+    <include
+        android:id="@+id/fragmentUserToolbar"
+        layout="@layout/toolbar"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,9 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginTop="30dp"
             android:gravity="center">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,7 +26,8 @@
                 <ImageView
                     android:id="@+id/profileImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="600px"
+                    android:scaleType="centerCrop"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     tools:src="@drawable/sun"/>
@@ -33,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Anass Lachiri"
+                android:text="Bob Alice"
                 android:textSize="40sp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"/>
@@ -41,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="anasslachiri@gmail.com"
+                android:text="bobalice@gmail.com"
                 android:textSize="30sp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"/>
@@ -49,6 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:weightSum="2"
                 android:layout_marginTop="10dp">
 
@@ -59,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/roundedbutton"
                     android:text="Edit Profile"
+                    android:textColor="@color/cardview_light_background"
                     android:textAllCaps="false"
                     android:layout_weight="1"/>
 
@@ -69,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/roundedbutton"
                     android:text="Log Out"
+                    android:textColor="@color/cardview_light_background"
                     android:textAllCaps="false"
                     android:layout_weight="1"/>
 
@@ -78,4 +84,4 @@
 
 
 
-</RelativeLayout>
+</LinearLayout>

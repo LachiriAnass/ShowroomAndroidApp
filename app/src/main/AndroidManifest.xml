@@ -2,22 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.intellcap.showroom">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/paint"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PaintingActivity"></activity>
-        <activity android:name=".GalleryActivity"></activity>
-        <activity android:name=".NewGalleryActivity" />
+        <activity android:name=".APITestingActivity"></activity>
+        <activity
+            android:name=".SearchActivity"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".PaintingsActivity"
+            android:parentActivityName=".GalleryActivity" />
+        <activity
+            android:name=".PaintingActivity"
+            android:parentActivityName=".PaintingsActivity" />
+        <activity
+            android:name=".GalleryActivity"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".NewGalleryActivity"
+            android:parentActivityName=".StartActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".NewPaintingActivity" />
-        <activity android:name=".EditProfileActivity" />
+        <activity
+            android:name=".NewPaintingActivity"
+            android:parentActivityName=".GalleryActivity" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:parentActivityName=".StartActivity" />
         <activity android:name=".StartActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,63 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".GalleriesActivity">
+    tools:context=".GalleryActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/activityGalleryToolbar"
+            layout="@layout/toolbar"/>
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gallery"
-            android:gravity="center"
-            android:textSize="70dp"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/galleryTitle"/>
-
+            android:layout_height="600px"
+            android:src="@drawable/sun"
+            android:id="@+id/galleryImage"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="10dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="20dp"
-            android:weightSum="3">
-            <ImageView
-                android:layout_width="0dp"
+            android:weightSum="2"
+            android:layout_marginBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp">
+            <Button
+                android:id="@+id/galleryUpVote"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/sun"
-                android:id="@+id/galleryImage"
-                android:layout_weight="1"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="2"
-                android:weightSum="3">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:gravity="center"
-                    android:textSize="25dp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hello there this is an example of a gallery description"
-                    android:id="@+id/galleryDescription"
-                    android:textSize="15dp"
-                    android:layout_weight="2"/>
-            </LinearLayout>
-
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:text="Upvote"
+                android:textColor="@color/cardview_light_background"
+                android:background="@drawable/roundedbutton"/>
+            <Button
+                android:id="@+id/galleryDownVote"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:text="Downvote"
+                android:textColor="@color/cardview_light_background"
+                android:background="@drawable/roundedbutton"/>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/galleryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gallery Title"
+            android:gravity="center"
+            android:textSize="30dp"/>
 
-        <ListView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello there this is an example of a gallery description"
+            android:id="@+id/galleryDescription"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/votingScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Voting Score : -12"
+            android:textSize="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/votingScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Price : $432"
+            android:textSize="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <Button
+            android:id="@+id/seePaintings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/galleryPaintingsList"/>
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="See Paintings"
+            android:textColor="@color/cardview_light_background"
+            android:background="@drawable/roundedbutton"/>
 
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

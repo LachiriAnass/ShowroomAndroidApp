@@ -131,7 +131,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
             android:onClick="doRegister"
-            android:text="Register" />
+            android:text="Register"
+            android:textColor="@color/cardview_light_background" />
 
     </LinearLayout>
 

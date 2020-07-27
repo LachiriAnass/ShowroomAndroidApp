@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="15dp"
-    android:paddingLeft="15dp"
     tools:context=".PaintingsActivity">
 
     <LinearLayout
@@ -13,28 +11,57 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Painting"
-            android:gravity="center"
-            android:textSize="70dp"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/galleryTitle"/>
+        <include
+            android:id="@+id/activityPaintingToolbar"
+            layout="@layout/toolbar"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageEditProfile"
+            android:id="@+id/imagePaintingActivity"
             android:src="@drawable/sun"
-            android:layout_marginBottom="40dp"/>
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp">
+
+            <Button
+                android:id="@+id/paintingUpVote"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedbutton"
+                android:text="UpVote"
+                android:textColor="@color/cardview_light_background"
+                android:layout_weight="1"/>
+
+
+            <Button
+                android:id="@+id/paintingDownVote"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedbutton"
+                android:text="DownVote"
+                android:textColor="@color/cardview_light_background"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/paintingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="  Description : "
+            android:text="Painting"
+            android:gravity="center"
             android:textSize="30dp" />
 
         <TextView
@@ -42,7 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This is an example of a painting description. Just for testing. This is an example of a painting description. Just for testing."
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"/>
 
         <TextView
             android:id="@+id/paintingPrice"
@@ -63,33 +92,6 @@
             android:paddingBottom="10dp"/>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginTop="20dp">
-
-            <Button
-                android:id="@+id/editProfile"
-                android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton"
-                android:text="UpVote"
-                android:layout_weight="1"/>
-
-
-            <Button
-                android:id="@+id/logout"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton"
-                android:text="DownVote"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
