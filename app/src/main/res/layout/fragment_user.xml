@@ -33,6 +33,7 @@
                     tools:src="@drawable/sun"/>
             </LinearLayout>
             <TextView
+                android:id="@+id/userFragmentName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bob Alice"
@@ -41,6 +42,7 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
+                android:id="@+id/userFragmentEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="bobalice@gmail.com"

@@ -22,6 +22,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 
@@ -34,6 +45,8 @@ public class ExploreFragment extends Fragment {
     UserData userData;
     String urlDomain;
     TextView myTextView;
+
+    String galleryID;
 
     Button latestButton;
     Button mostRatedButton;
@@ -54,7 +67,12 @@ public class ExploreFragment extends Fragment {
             new CustomData("Gallery 4", "https://cdn.pixabay.com/photo/2020/06/28/08/03/zoo-5348334_960_720.jpg"),
             new CustomData("Gallery 5", "https://cdn.pixabay.com/photo/2015/05/15/14/54/horizon-768759_960_720.jpg"),
             new CustomData("Gallery 6", "https://cdn.pixabay.com/photo/2020/06/11/13/56/forest-5286824_960_720.jpg")
-    };
+    };  // For testing
+
+    CustomData[] latestGalleriesCustomData;
+    JSONArray latestGalleriesObjects;
+    CustomData[] mostRatedGalleriesCustomData;
+    JSONArray mostRatedGalleriesObjects;
 
 
     public ExploreFragment() {
@@ -70,6 +88,46 @@ public class ExploreFragment extends Fragment {
         userData = new UserData(container.getContext());
 
 
+        /*                           THIS SECTION HAS NOT BEEN TESTED
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        String url = UserData.URL_DOMAIN + "/api/explore";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        String myResponse = response.toString();
+                        try {
+                            JSONObject myJSON = new JSONObject(myResponse);
+                            if(myJSON.getString("status").toString().equals("good")){
+                                latestGalleriesObjects = myJSON.getJSONArray("latest_galleries");
+                                latestGalleriesCustomData = new CustomData[latestGalleriesObjects.length()];
+                                for(int i = 0; i<=latestGalleriesObjects.length(); i++){
+                                    latestGalleriesCustomData[i] = new CustomData(latestGalleriesObjects.getJSONObject(i).getString("title"), UserData.URL_DOMAIN + "/storage/public/gallery/"  + latestGalleriesObjects.getJSONObject(i).getString("image"));
+                                }
+
+                                mostRatedGalleriesObjects = myJSON.getJSONArray("most_rated_galleries");
+                                mostRatedGalleriesCustomData = new CustomData[mostRatedGalleriesObjects.length()];
+                                for(int i = 0; i<=mostRatedGalleriesObjects.length(); i++){
+                                    mostRatedGalleriesCustomData[i] = new CustomData(mostRatedGalleriesObjects.getJSONObject(i).getString("title"), UserData.URL_DOMAIN + "/storage/public/gallery/"  + mostRatedGalleriesObjects.getJSONObject(i).getString("image"));
+                                }
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Something went wrong. Try Again.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest); */
 
 
         return view;
@@ -89,7 +147,8 @@ public class ExploreFragment extends Fragment {
         latestText = getView().findViewById(R.id.latestText);
         latestGalleriesList = getView().findViewById(R.id.exploreLatestGalleries);
 
-        customAdapter = new CustomAdapter(getActivity(), R.layout.custom_row, customData);
+        customAdapter = new CustomAdapter(getActivity(), R.layout.custom_row, customData); // For Testing
+        //customAdapter = new CustomAdapter(getActivity(), R.layout.custom_row, latestGalleriesCustomData);
 
         if(latestGalleriesList != null){
             latestGalleriesList.setAdapter(customAdapter);
@@ -101,6 +160,14 @@ public class ExploreFragment extends Fragment {
                 //Log.v("PLACE", myPlacesArray[position]);
                 Toast.makeText(getContext(), position + " " +customData[position].mText +" .", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getContext(), GalleryActivity.class);
+                /*       THIS SECTION HAS NOT BEEN TESTED
+                try {
+                    galleryID = latestGalleriesObjects.getJSONObject(position).getString("id");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                i.putExtra("gallery_id", galleryID);*/
+                i.putExtra("gallery_id", "1"); // FOR TESTING
                 startActivity(i);
             }
         });
@@ -109,7 +176,8 @@ public class ExploreFragment extends Fragment {
 
         mostRatedText = getView().findViewById(R.id.mostRatedText);
         mostRatedGalleriesList = getView().findViewById(R.id.exploreMostRatedGalleries);
-        customAdapter2 = new CustomAdapter(getActivity(), R.layout.custom_row, customData);
+        customAdapter2 = new CustomAdapter(getActivity(), R.layout.custom_row, customData); // For testing
+        //customAdapter2 = new CustomAdapter(getActivity(), R.layout.custom_row, mostRatedGalleriesCustomData);
 
         if(mostRatedGalleriesList != null){
             mostRatedGalleriesList.setAdapter(customAdapter2);
@@ -121,6 +189,14 @@ public class ExploreFragment extends Fragment {
                 //Log.v("PLACE", myPlacesArray[position]);
                 Toast.makeText(getContext(), position + " " +customData[position].mText +" .", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getContext(), GalleryActivity.class);
+                /*       THIS SECTION HAS NOT BEEN TESTED
+                try {
+                    galleryID = mostRatedGalleriesObjects.getJSONObject(position).getString("id");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                i.putExtra("gallery_id", galleryID);*/
+                i.putExtra("gallery_id", "1"); // FOR TESTING
                 startActivity(i);
             }
         });

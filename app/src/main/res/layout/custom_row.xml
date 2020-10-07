@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp"
     android:elevation="20dp"
     android:background="@drawable/shadow">
 
@@ -22,7 +21,6 @@
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:gravity="center"
-        android:background="#EEE"
         android:textColor="#333"
         android:text="See painting"
         android:textSize="30dp" />

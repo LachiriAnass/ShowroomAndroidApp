@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class APITestingActivity extends AppCompatActivity {
 
+    UserData userData = new UserData(this);
     TextView api_text_view;
 
     @Override

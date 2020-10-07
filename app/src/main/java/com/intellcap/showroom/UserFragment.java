@@ -19,7 +19,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.toolbox.JsonRequest;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,9 @@ import java.util.ArrayList;
 public class UserFragment extends Fragment {
 
     UserData userData;
+    ImageView imageView;
+    TextView userFragmentName;
+    TextView userFragmentEmail;
 
     private ArrayList<String> titles = new ArrayList<>();
     //private ArrayList<Bitmap> images;
@@ -72,7 +78,7 @@ public class UserFragment extends Fragment {
 
 
         //ImageView imageView = container.findViewById(R.id.profileImage);
-        //String url = "http://192.168.1.18/storage/public/profile/omar_al_mokhtar12_1595355245.jpg";
+        //String url = "http://192.168.1.18/storage/public/profile/default_avatar.jpg";
         //Picasso.get().load(url).into(imageView);
 
 
@@ -86,10 +92,22 @@ public class UserFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("  Profile");
 
+        userFragmentName = (TextView) getView().findViewById(R.id.userFragmentName);
+        userFragmentEmail = (TextView) getView().findViewById(R.id.userFragmentEmail);
+        imageView = (ImageView) getView().findViewById(R.id.profileImage);
 
-        ImageView imageView = (ImageView) getView().findViewById(R.id.profileImage);
-        String url = "http://192.168.10.10/storage/public/gallery/default.jpg";
-        Picasso.get().load(url).into(imageView);
+        try {
+            JSONObject myUser = new JSONObject(userData.getUserData());
+
+            userFragmentName.setText(myUser.getString("name"));
+            userFragmentEmail.setText(myUser.getString("email"));
+
+            String url = "https://cdn.pixabay.com/photo/2020/07/14/21/02/nature-5405758_960_720.jpg"; // FOR TESTING
+            //String url = UserData.URL_DOMAIN + "/storage/public/profile/" + myUser.getString("image");
+            Picasso.get().load(url).into(imageView);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

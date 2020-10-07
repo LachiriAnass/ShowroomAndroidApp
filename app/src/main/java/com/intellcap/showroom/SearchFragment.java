@@ -46,9 +46,11 @@ public class SearchFragment extends Fragment{
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), SearchActivity.class);
-                i.putExtra("SEARCH_TEXT", searchText.getText().toString());
-                startActivity(i);
+                if(!searchText.getText().toString().isEmpty() && !searchText.getText().toString().trim().equals("")){
+                    Intent i = new Intent(getContext(), SearchActivity.class);
+                    i.putExtra("SEARCH_TEXT", searchText.getText().toString().trim());
+                    startActivity(i);
+                }
             }
         });
     }

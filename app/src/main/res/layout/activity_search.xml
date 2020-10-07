@@ -5,16 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
-    <include
-        android:id="@+id/activitySearchToolbar"
-        layout="@layout/toolbar"/>
 
-    <TextView
-        android:id="@+id/searchActivityText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Search Activity"
-        android:textSize="45dp"
-        android:gravity="center"/>
+        android:orientation="vertical">
+        <include
+            android:id="@+id/activitySearchToolbar"
+            layout="@layout/toolbar"/>
+
+        <TextView
+            android:id="@+id/searchActivityText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Activity"
+            android:textSize="45dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp">
+            <Button
+                android:id="@+id/searchGalleriesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:text="Galleries"
+                android:textColor="@color/cardview_light_background"
+                android:background="@drawable/roundedbutton"/>
+            <Button
+                android:id="@+id/searchPaintingsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:text="Paintings"
+                android:textColor="@color/cardview_light_background"
+                android:background="@drawable/roundedbutton"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/searchGalleriesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Galleries"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:elevation="4dp"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/searchGalleriesListView"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="7.0sp"/>
+
+        <TextView
+            android:id="@+id/searchPaintingsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paintings"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:elevation="4dp"/>
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/searchPaintingsListView"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="7.0sp"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/exploreLatestGalleries"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="10.0sp"/>
+                android:dividerHeight="4.0sp"/>
 
             <TextView
                 android:id="@+id/mostRatedText"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/exploreMostRatedGalleries"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="7.0sp"/>
+                android:dividerHeight="4.0sp"/>
         </LinearLayout>
 
 

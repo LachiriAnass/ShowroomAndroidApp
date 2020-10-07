@@ -14,7 +14,7 @@ public class UserData {
     private static final String DATA_FILE = "user_data";
     Context context;
 
-    public static final String URL_DOMAIN = "https://jsonplaceholder.typicode.com";
+    public static final String URL_DOMAIN = "https://showroom.com"; // Put your website url here
 
 
 

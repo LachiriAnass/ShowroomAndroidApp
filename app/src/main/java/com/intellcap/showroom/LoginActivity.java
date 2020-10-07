@@ -16,6 +16,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -25,6 +26,9 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     UserData userData = new UserData(this);
+
+
+    String userJSONObject = "{\"id\":1,\"name\":\"Admin\",\"image\":\"default_avatar.jpg\",\"email\":\"admin@gmail.com\",\"email_verified_at\":null,\"login_token\":\"Zc20PUmxe9rDDmiBfSr2rAnSqXm3KYKrmwdyr0HBKDfRUtBOu2LEjFQd3gwY\",\"votes_average\":0,\"created_at\":\"2020-08-05T21:59:47.000000Z\",\"updated_at\":\"2020-08-13T13:33:19.000000Z\"}";
 
     private EditText email;
     private EditText password;
@@ -53,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
             RequestQueue loginQueue = Volley.newRequestQueue(LoginActivity.this);
-            String url = "http://192.168.1.18/api/login";
+            String url = UserData.URL_DOMAIN + "/api/login";
 
             // Request a string response from the provided URL.
 
@@ -63,11 +67,17 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(String response) {
                             // Display the first 500 characters of the response string.
                             String myResponse = response.toString();
-                            //userData.saveUserData(myResponse);
-                            Intent i = new Intent(getApplicationContext(), APITestingActivity.class);
-                            i.putExtra("API_RESONSE", myResponse);
-                            startActivity(i);
-                            finish();
+                            try {
+                                JSONObject myJSON = new JSONObject(myResponse);
+                                if(myJSON.getString("status").toString().equals("good")){
+                                    userData.saveUserData(myJSON.getJSONObject("user").toString());
+                                    Intent i = new Intent(getApplicationContext(), StartActivity.class);
+                                    startActivity(i);
+                                    finish();
+                                }
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                            }
                         }
                     },
                     new Response.ErrorListener() {
@@ -80,8 +90,8 @@ public class LoginActivity extends AppCompatActivity {
                 protected Map<String, String> getParams()
                 {
                     Map<String, String> params = new HashMap<String, String>();
-                    params.put("email", "admin@gmail.com");
-                    params.put("password", "admin");
+                    params.put("email", email.getText().toString());
+                    params.put("password", password.getText().toString());
 
                     return params;
                 }
@@ -89,6 +99,11 @@ public class LoginActivity extends AppCompatActivity {
 
             // Add the request to the RequestQueue.
             loginQueue.add(stringRequest);
+
+            userData.saveUserData(userJSONObject);
+            Intent i = new Intent(getApplicationContext(), StartActivity.class);
+            startActivity(i);
+            finish();
 
         }
     }
