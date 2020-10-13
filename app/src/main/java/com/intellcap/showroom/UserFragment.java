@@ -102,7 +102,7 @@ public class UserFragment extends Fragment {
             userFragmentName.setText(myUser.getString("name"));
             userFragmentEmail.setText(myUser.getString("email"));
 
-            String url = "https://cdn.pixabay.com/photo/2020/07/14/21/02/nature-5405758_960_720.jpg"; // FOR TESTING
+            String url = "https://cdn.pixabay.com/photo/2020/05/14/19/49/cornwall-5171138_960_720.jpg"; // FOR TESTING
             //String url = UserData.URL_DOMAIN + "/storage/public/profile/" + myUser.getString("image");
             Picasso.get().load(url).into(imageView);
         }catch (Exception e){

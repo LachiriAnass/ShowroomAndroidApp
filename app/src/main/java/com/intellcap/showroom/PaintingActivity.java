@@ -125,7 +125,7 @@ public class PaintingActivity extends AppCompatActivity {
             queue.add(stringRequest);
         }
 
-        String url = "https://cdn.pixabay.com/photo/2020/07/14/21/02/nature-5405758_960_720.jpg";
+        String url = "https://cdn.pixabay.com/photo/2020/05/14/19/49/cornwall-5171138_960_720.jpg";
         Picasso.get().load(url).into(imagePaintingActivity);
 
 
